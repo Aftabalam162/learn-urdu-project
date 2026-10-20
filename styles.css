@@ -1,0 +1,113 @@
+/* Urdu Seekho — quiet, text-first style. No external fonts or dependencies. */
+:root {color-scheme:light; --paper:#f9faf7; --text:#1e2923; --muted:#56655c; --border:#d9e1d9; --green:#1b684e; --green-soft:#e7f2ea; --red:#9b332b; --red-soft:#fff0ed;}
+* {box-sizing:border-box;} [hidden] {display:none!important;}
+body {margin:0;background:var(--paper);color:var(--text);font-family:system-ui,-apple-system,"Noto Sans Devanagari",Mangal,Arial,sans-serif;line-height:1.55;}
+.wrap {max-width:740px;margin:0 auto;padding:30px 18px 60px;}
+.brand {font-weight:730;margin:0 0 14px;font-size:16px;letter-spacing:.01em;}
+.brand-urdu {font-weight:400;margin-left:6px;font-family:"Noto Nastaliq Urdu","Urdu Typesetting","Noto Naskh Arabic",serif;}
+h1 {font-size:clamp(29px,5vw,37px);line-height:1.2;margin:0 0 9px;letter-spacing:-.03em;}
+.subheading {color:var(--muted);margin:0 0 24px;max-width:640px;font-size:15px;}
+.setup,.quiz,.results {border:1px solid var(--border);border-radius:12px;background:#fff;padding:20px 22px;margin:0 0 16px;}
+.setup-row {display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.set-control {min-width:260px;max-width:100%;}
+label, legend {font-size:14px;font-weight:650;}
+.set-control label {display:block;margin-bottom:6px;}
+select {background:#fff;border:1px solid #aab8ae;color:var(--text);font:inherit;border-radius:6px;padding:9px 12px;width:290px;max-width:100%;min-height:42px;}
+.best {color:var(--muted);font-size:13px;margin:0 0 5px;}
+.mode-selector {border:0;padding:0;margin:17px 0 15px;display:flex;align-items:center;flex-wrap:wrap;column-gap:24px;row-gap:10px;}
+.mode-selector legend {float:left;margin-right:16px;padding:0;line-height:27px;}
+.mode-selector label {font-weight:450;cursor:pointer;}
+.mode-selector input {accent-color:var(--green);vertical-align:middle;margin-right:5px;}
+.tiny {font-size:12px;color:var(--muted);}
+details {border-top:1px solid var(--border);padding-top:13px;font-size:14px;}
+summary {cursor:pointer;color:var(--green);font-weight:600;}
+.table-scroll {max-width:100%;overflow-x:auto;margin-top:10px;}
+table {width:100%;border-collapse:collapse;}
+th,td {padding:8px 11px;border-bottom:1px solid var(--border);text-align:left;vertical-align:middle;font-size:14px;}
+th {background:#f4f7f3;color:#334c3b;font-size:12px;white-space:nowrap;}
+.urdu-cell {direction:rtl;font-size:22px;line-height:2.15;white-space:nowrap;font-family:"Noto Nastaliq Urdu","Urdu Typesetting","Noto Naskh Arabic",serif;}
+.hindi-cell {font-size:15px;}
+.quiz-status {display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px;}
+.quiz-status span {color:var(--muted);}
+.progress {height:7px;border-radius:99px;background:#e7ede7;overflow:hidden;margin:12px 0 24px;}
+.progress div {height:100%;width:0;background:var(--green);transition:width .18s linear;}
+.question {font-size:16px;font-weight:600;margin:0 0 4px;text-align:center;}
+.word-box {min-height:125px;display:flex;align-items:center;justify-content:center;padding:12px;}
+.urdu-big {text-align:center;font:normal clamp(42px,8vw,61px)/2 "Noto Nastaliq Urdu","Urdu Typesetting","Noto Naskh Arabic",serif;direction:rtl;overflow-wrap:anywhere;}
+.choices {display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:5px 0 15px;}
+button {font:inherit;cursor:pointer;}
+.option {min-height:67px;background:#fff;border:1px solid #cbd7cb;border-radius:8px;padding:12px 10px;text-align:center;color:var(--text);line-height:1.5;font-size:17px;overflow-wrap:anywhere;}
+.option:not(:disabled):hover {background:#f2f8f3;border-color:var(--green);}
+.option:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible {outline:3px solid #86bb9e;outline-offset:3px;}
+.option.correct {border-color:var(--green);background:var(--green-soft);font-weight:700;}
+.option.wrong {border-color:var(--red);background:var(--red-soft);}
+.option:disabled {cursor:default;color:var(--text);}
+.feedback {margin:10px 0 15px;border-left:3px solid var(--border);padding:8px 11px;font-size:14px;background:#f7f9f7;}
+.feedback.good {border-color:var(--green);background:var(--green-soft);}
+.feedback.bad {border-color:var(--red);background:var(--red-soft);}
+.feedback strong {display:block;margin-bottom:3px;}
+.feedback .note {color:var(--muted);display:block;margin-top:6px;}
+.quiz-actions,.result-actions {display:flex;align-items:center;justify-content:space-between;gap:9px;flex-wrap:wrap;}
+button.primary,button.secondary {border-radius:7px;min-height:42px;padding:10px 15px;font-size:14px;font-weight:650;}
+button.primary {color:#fff;background:var(--green);border:1px solid var(--green);}
+button.primary:hover:not(:disabled) {background:#115339;}
+button.secondary {background:#fff;border:1px solid #b8c9bc;color:#254935;}
+button.secondary:hover {background:#f2f8f3;}
+button.primary:disabled {cursor:not-allowed;background:#a2afa5;border-color:#a2afa5;}
+.results h2 {margin:4px 0 8px;font-size:27px;}
+.results h3 {font-size:17px;margin:18px 0 0;}
+.eyebrow {text-transform:uppercase;letter-spacing:.08em;font-size:12px;font-weight:700;color:var(--green);margin:0;}
+.muted {color:var(--muted);font-size:14px;}
+.result-actions {margin-top:19px;justify-content:flex-start;}
+footer {font-size:13px;color:var(--muted);padding:8px 3px;line-height:1.6;}
+footer p {margin:8px 0;}
+@media(max-width:540px){.wrap{padding:20px 12px 48px}.setup,.quiz,.results{padding:15px 13px}.mode-selector legend{float:none;margin-bottom:9px}.mode-selector{display:block}.mode-selector label{display:block;margin:8px 0}.choices{grid-template-columns:1fr 1fr;gap:8px}.option{font-size:15px;min-height:64px;padding:9px 6px}.set-control{min-width:0}th,td{padding:7px 8px;font-size:12px}.urdu-cell{font-size:20px}.word-box{min-height:118px}.result-actions{align-items:stretch}.result-actions button{flex:1 1 auto}}
+@media(max-width:360px){.choices{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.progress div{transition:none}}
+
+/* Small shared header and learner guide — quiz rules above remain unchanged. */
+.site-nav {display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:4px 0 23px;border-bottom:1px solid var(--border);margin-bottom:28px;}
+.home-link {font-size:16px;font-weight:730;white-space:nowrap;color:var(--text);text-decoration:none;}
+.nav-links {display:flex;gap:16px;flex-wrap:wrap;}
+.nav-links a,.site-footer a,.text-link,.plain-section a:not(.link-button) {color:var(--green);text-decoration:underline;text-underline-offset:2px;}
+.nav-links a {font-size:13px;text-decoration:none;font-weight:600;}
+.nav-links a:hover {text-decoration:underline;}
+.header .subheading a {color:var(--green);}
+.guide-header .eyebrow {margin:0 0 12px;text-transform:none;letter-spacing:.01em;font-size:12px;}
+.guide-header {margin-bottom:24px;}
+.guide-header .subheading {margin-bottom:20px;}
+.guide-header p:last-child {display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.link-button {display:inline-block;color:white!important;background:var(--green);padding:10px 15px;border-radius:7px;text-decoration:none;font-size:14px;font-weight:650;}
+.link-button:hover {background:#115339;}
+.plain-section {margin:0 0 17px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:19px 22px;}
+.plain-section h2 {font-size:22px;line-height:1.3;letter-spacing:-.02em;margin:0 0 12px;}
+.plain-section h3 {font-size:16px;line-height:1.4;margin:20px 0 6px;}
+.plain-section p {font-size:14px;margin:8px 0;line-height:1.72;}
+.plain-section .small-note {padding:11px 13px;background:#f3f7f3;border-radius:6px;}
+.plain-section ol {padding-left:22px;font-size:14px;line-height:1.8;}
+.plain-section li+li {margin-top:5px;}
+.plain-section .muted {color:var(--muted);}
+.guide-table th {font-size:12px;}
+.guide-table td {font-size:14px;}
+.guide-table .letter {font:normal 29px/1.9 "Noto Nastaliq Urdu","Urdu Typesetting","Noto Naskh Arabic",serif;text-align:center;min-width:75px;}
+.inline-urdu {font:normal 24px/1.7 "Noto Nastaliq Urdu","Urdu Typesetting","Noto Naskh Arabic",serif;margin:0 3px;unicode-bidi:isolate;}
+.word-examples .urdu-cell {font-size:25px;}
+.intro-space {border-left:3px solid #c4d6c8;}
+.faq h3 {margin:18px 0 4px;}
+.faq h3:first-of-type {margin-top:12px;}
+.word-sets .word-set {border:1px solid var(--border);border-radius:8px;padding:10px 13px;margin:8px 0;}
+.word-sets .word-set summary {font-size:14px;}
+.word-sets .word-set .table-scroll {margin-top:13px;}
+.word-number {width:35px;color:var(--muted);font-size:12px!important;}
+.submeaning {display:block;font-size:12px;color:var(--muted);padding-top:3px;}
+.site-footer {padding:10px 2px;color:var(--muted);font-size:13px;}
+.site-footer p {margin:7px 0;}
+@media (max-width:540px) {
+ .site-nav {margin-bottom:22px;gap:14px;}
+ .nav-links {gap:12px;}
+ .plain-section {padding:15px 14px;}
+ .plain-section h2 {font-size:21px;}
+ .guide-table th,.guide-table td {padding:8px 7px;font-size:12px;}
+ .guide-table .letter {font-size:26px;min-width:50px;}
+ .word-examples .urdu-cell {font-size:22px;}
+}

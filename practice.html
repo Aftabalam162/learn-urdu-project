@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f9faf7">
+<meta name="description" content="Free interactive Urdu reading practice for Hindi speakers. Test 1,000 Urdu words in 50 sets of 20 using Hindi reading or English meaning, with instant feedback.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Urdu Seekho">
+<meta property="og:title" content="Urdu Reading Quiz: 1,000 Words in 50 Sets | Urdu Seekho">
+<meta property="og:description" content="Free interactive Urdu reading practice for Hindi speakers. Test 1,000 Urdu words in 50 sets of 20 using Hindi reading or English meaning, with instant feedback.">
+<meta name="twitter:card" content="summary">
+<!-- SITE_URL_MARKER_START --><!-- SITE_URL_MARKER_END -->
+<title>Urdu Reading Quiz: 1,000 Words in 50 Sets | Urdu Seekho</title>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"Test Yourself: 1000 Urdu Words with Hindi and English","description":"Free interactive Urdu reading practice for Hindi speakers. Test 1,000 Urdu words in 50 sets of 20 using Hindi reading or English meaning, with instant feedback.","learningResourceType":"Interactive vocabulary quiz","educationalLevel":"Beginner","inLanguage":["en","hi","ur"],"isAccessibleForFree":true,"audience":{"@type":"EducationalAudience","educationalRole":"student"}}</script>
+<link rel="stylesheet" href="styles.css">
+  <script defer src="words.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<div class="wrap">
+<nav class="site-nav" aria-label="Main navigation">
+  <a href="index.html" class="home-link">Urdu Seekho <span lang="ur" dir="rtl" class="brand-urdu">اردو سیکھو</span></a>
+  <div class="nav-links"><a href="index.html">Start here</a><a href="practice.html">Test yourself</a><a href="word-list.html">1,000 words</a></div>
+</nav>
+<main id="main">
+  <header class="header">
+    
+    <h1>03. Test yourself</h1>
+    <p class="subheading">Read an Urdu word and choose its Hindi reading or English meaning. All 1,000 words are organised into 50 small sets of 20. <a href="index.html#reading-rules">New to Urdu? Read the guide first.</a></p>
+  </header>
+
+  <section class="setup" aria-label="Practice settings">
+    <div class="setup-row">
+      <div class="set-control">
+        <label for="setSelect">Choose a set</label>
+        <select id="setSelect"></select>
+      </div>
+      <p id="bestScore" class="best" aria-live="polite"></p>
+    </div>
+    <fieldset class="mode-selector">
+      <legend>Test me on</legend>
+      <label><input type="radio" name="mode" value="reading" checked> Hindi reading <span class="tiny">(recommended)</span></label>
+      <label><input type="radio" name="mode" value="english"> English meaning</label>
+    </fieldset>
+    <details id="studyDetails">
+      <summary>See this set's 20 words before practising</summary>
+      <div class="table-scroll"><table aria-label="Study list"><thead><tr><th>#</th><th>Urdu</th><th>Hindi reading</th><th>English</th></tr></thead><tbody id="wordTable"></tbody></table></div>
+    </details>
+  </section>
+
+  <section id="quizScreen" class="quiz" aria-label="Word recognition quiz">
+    <div class="quiz-status"><strong id="counter">Question 1 of 20</strong><span id="liveScore">0 correct</span></div>
+    <div class="progress" role="progressbar" aria-label="Questions answered" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0" id="progress"><div id="progressFill"></div></div>
+    <p class="question" id="questionPrompt">How do you read this word in Hindi?</p>
+    <div class="word-box"><div class="urdu-big" lang="ur" dir="rtl" id="urduWord"></div></div>
+    <div id="choices" class="choices" role="group" aria-label="Choose an answer"></div>
+    <div id="feedback" class="feedback" aria-live="polite" hidden></div>
+    <div class="quiz-actions"><button id="restartBtn" class="secondary" type="button">Restart set</button><button id="nextBtn" class="primary" type="button" disabled>Next word →</button></div>
+  </section>
+
+  <section id="resultScreen" class="results" aria-label="Quiz results" hidden>
+    <p class="eyebrow">Set completed</p>
+    <h2 id="resultHeading">Your result</h2>
+    <p id="resultText"></p>
+    <p id="resultBest" class="muted"></p>
+    <div id="mistakesWrap" hidden><h3>Words to revisit</h3><div class="table-scroll"><table><thead><tr><th>Urdu</th><th>Hindi reading</th><th>English</th></tr></thead><tbody id="mistakesTable"></tbody></table></div></div>
+    <div class="result-actions"><button id="retryMistakesBtn" class="secondary" type="button" hidden>Practise missed words</button><button id="retrySetBtn" class="secondary" type="button">Try this set again</button><button id="nextSetBtn" class="primary" type="button">Next set →</button></div>
+  </section>
+
+  <footer class="site-footer"><p><a href="index.html#alphabet">Urdu alphabet</a> · <a href="word-list.html">Full word list</a></p><p><strong>Reading tip:</strong> Ordinary Urdu leaves out most short-vowel marks. Recognising familiar Hindi/Urdu words becomes easier with practice and context.</p><p>Text only · Works offline · No account · Progress stays in this browser</p></footer>
+</main>
+</div>
+</body>
+</html>
